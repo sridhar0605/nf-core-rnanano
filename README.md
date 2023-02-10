@@ -1,5 +1,5 @@
-# wgsnano
-## Whole Genome Sequencing by Nanopore data analysis
+# cDNAnano
+## rnaseq analysis alignment, assembly, quantification of isoforms
 
 
 [![Nextflow](https://img.shields.io/badge/nextflow%20DSL2-%E2%89%A522.10.1-23aa62.svg)](https://www.nextflow.io/)
@@ -23,13 +23,9 @@ The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool
 <!-- TODO nf-core: Fill in short bullet-pointed list of the default steps in the pipeline -->
 
 1. Basecalling ([`Guppy`](https://nanoporetech.com/nanopore-sequencing-data-analysis)) - with GPU run option
-1. Basecalling QC ([`PycoQC`](https://a-slide.github.io/pycoQC/))
+1. Basecalling QC ([`PycoQC`](https://a-slide.github.io/pycoQC/),[`NanoPlot](https://github.com/wdecoster/NanoPlot))
 1. Alignment ([`Guppy`](https://nanoporetech.com/nanopore-sequencing-data-analysis) with [`minimap2`](https://github.com/lh3/minimap2))
-1. Merge all aligned bam files into a single file ([`samtools`](http://www.htslib.org/doc/samtools.html))
-1. Haplotyping and phased variants calling ([`PEPPER-Margin-DeepVariant`](https://github.com/kishwarshafin/pepper))
-1. Methylation calls extraction from bam to bed files ([`modbam2bed`](https://github.com/epi2me-labs/modbam2bed))
-1. Depth calculation ([`mosdepth`](https://github.com/brentp/mosdepth))
-1. MultiQC ([`MultiQC`](https://multiqc.info/)) for Basecalling (PycoQC) and Depth (mosdepth)
+
 
 ## Quick Start
 
