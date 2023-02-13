@@ -48,10 +48,10 @@ include { INPUT_CHECK } from '../subworkflows/local/input_check'
 //
 // MODULE: Installed directly from nf-core/modules
 //
-include { GUPPY_BASECALLER            } from '../modules/local/GUPPY_BASECALLER'
-include { GUPPY_BASECALLER_GPU        } from '../modules/local/GUPPY_BASECALLER_GPU'
+include { GUPPY_BASECALLER            } from '../modules/local/guppy_basecaller'
+include { GUPPY_BASECALLER_GPU        } from '../modules/local/guppy_basecaller_gpu'
 include { PYCOQC                      } from '../modules/local/PYCOQC'
-include { GUPPY_ALIGNER               } from '../modules/local/GUPPY_ALIGNER'
+include { MINIMAP_ALIGNER               } from '../modules/local/minimap2_aligner'
 include { SAMTOOLS_MERGE              } from '../modules/local/SAMTOOLS_MERGE'
 include { PEPPER                      } from '../modules/local/PEPPER'
 include { SAMTOOLS_INDEX              } from '../modules/local/SAMTOOLS_INDEX'
@@ -128,7 +128,7 @@ workflow WGSNANO {
     //
     // MODULE: GUPPY_ALIGNER for Alignment
     //
-    GUPPY_ALIGNER (
+    MINIMAP_ALIGNER (
         ch_bams_path_per_sample,
         file(params.fasta)
     )
