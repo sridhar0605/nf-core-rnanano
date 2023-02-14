@@ -39,7 +39,7 @@ include { RNANANO } from './workflows/rnanano'
 //
 // WORKFLOW: Run main nf-core/wgsnano analysis pipeline
 //
-workflow NFCORE_WGSNANO {
+workflow NFCORE_RNANANO {
     RNANANO ()
     // Emit for testing purpose
     // emit: WGSNANO.out

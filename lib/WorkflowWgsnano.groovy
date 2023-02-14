@@ -4,7 +4,7 @@
 
 import groovy.text.SimpleTemplateEngine
 
-class WorkflowWgsnano {
+class WorkflowRnanano {
 
     //
     // Check and validate parameters
