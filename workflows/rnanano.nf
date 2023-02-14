@@ -7,7 +7,7 @@
 def summary_params = NfcoreSchema.paramsSummaryMap(workflow, params)
 
 // Validate input parameters
-WorkflowWgsnano.initialise(params, log)
+Workflowrnanano.initialise(params, log)
 
 // TODO nf-core: Add all file path parameters for the pipeline to the list below
 // Check input path parameters to see if they exist
@@ -50,8 +50,9 @@ include { INPUT_CHECK } from '../subworkflows/local/input_check'
 //
 include { GUPPY_BASECALLER            } from '../modules/local/guppy_basecaller'
 include { GUPPY_BASECALLER_GPU        } from '../modules/local/guppy_basecaller_gpu'
-include { PYCOQC                      } from '../modules/local/PYCOQC'
-include { MINIMAP_ALIGNER               } from '../modules/local/minimap2_aligner'
+include { PYCOQC                      } from '../modules/local/pycoqc'
+include { NANOPLOT                    } from '../modules/local/nanoplot'
+include { MINIMAP_ALIGNER             } from '../modules/local/minimap2_aligner'
 include { SAMTOOLS_MERGE              } from '../modules/local/SAMTOOLS_MERGE'
 include { PEPPER                      } from '../modules/local/PEPPER'
 include { SAMTOOLS_INDEX              } from '../modules/local/SAMTOOLS_INDEX'
@@ -70,7 +71,7 @@ include { MULTIQC                     } from '../modules/local/MULTIQC'
 // Info required for completion email and summary
 def multiqc_report = []
 
-workflow WGSNANO {
+workflow RNANANO {
 
     ch_versions = Channel.empty()
 
@@ -114,6 +115,23 @@ workflow WGSNANO {
     )
     ch_versions = ch_versions.mix(PYCOQC.out.versions)
 
+    //
+    // MODULE Nanoplot seq summary file
+    //
+    NANOPLOT(
+        ch_basecall_out.summary
+    )
+    ch_versions = ch_versions.mix(NANOPLOT.out.versions)
+
+    //
+    // MODULE Nanoplot seq fastq file
+    //
+    NANOPLOT(
+        INPUT_CHECK.out.reads
+    )
+    ch_versions = ch_versions.mix(NANOPLOT.out.versions)
+
+
 
     //
     // CHANNEL: Channel operation group unaligned bams paths by sample (i.e bams of reads from multiple flow cells but the same sample streamed together to be fed for alignment module)
@@ -132,57 +150,30 @@ workflow WGSNANO {
         ch_bams_path_per_sample,
         file(params.fasta)
     )
-    ch_versions = ch_versions.mix(GUPPY_ALIGNER.out.versions)
+    ch_versions = ch_versions.mix(MINIMAP_ALIGNER.out.versions)
+
+    
 
     //
     // MODULE: Samtools merge all bams
     //
     SAMTOOLS_MERGE (
-        GUPPY_ALIGNER.out.bams,
-        GUPPY_ALIGNER.out.bais
+        MINIMAP_ALIGNER.out.bams,
+        MINIMAP_ALIGNER.out.bais
     )
     ch_versions = ch_versions.mix(SAMTOOLS_MERGE.out.versions)
 
 
     //
-    // MODULE: PEPPER
+    // MODULE Nanoplot seq bam file
     //
-    PEPPER (
+    NANOPLOT(
         SAMTOOLS_MERGE.out.bam,
-        SAMTOOLS_MERGE.out.bai,
-        file(params.fasta)
+        SAMTOOLS_MERGE.out.bai
     )
-    ch_versions = ch_versions.mix(PEPPER.out.versions)
+    ch_versions = ch_versions.mix(NANOPLOT.out.versions)
 
-    //
-    // MODULE: Index PEPPER bam
-    //
-    SAMTOOLS_INDEX (
-        PEPPER.out.bam
-    )
-    ch_versions = ch_versions.mix(SAMTOOLS_INDEX.out.versions)
-
-
-    //
-    // MODULE: MOSDEPTH for depth calculation
-    //
-    MOSDEPTH (
-        SAMTOOLS_INDEX.out.bam,
-        SAMTOOLS_INDEX.out.bai
-    )
-    ch_versions = ch_versions.mix(MOSDEPTH.out.versions)
-
-
-    //
-    // MODULE: MODBAM2BED to extract methylation data
-    //
-    MODBAM2BED (
-        SAMTOOLS_INDEX.out.bam,
-        SAMTOOLS_INDEX.out.bai,
-        file(params.fasta)
-    )
-    ch_versions = ch_versions.mix(MODBAM2BED.out.versions)
-
+    
 
 
 
@@ -205,13 +196,13 @@ workflow WGSNANO {
     ch_multiqc_files = ch_multiqc_files.mix(CUSTOM_DUMPSOFTWAREVERSIONS.out.mqc_yml.collect())
     ch_multiqc_files = ch_multiqc_files.mix(PYCOQC.out.json.collect{it[1]}.ifEmpty([]))
 
-    ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.global_txt.collect{it[1]}.ifEmpty([]))
-    ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.summary_txt.collect{it[1]}.ifEmpty([]))
-    ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.regions_txt.collect{it[1]}.ifEmpty([]))
-    ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.regions_bed.collect{it[1]}.ifEmpty([]))
-    ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.regions_csi.collect{it[1]}.ifEmpty([]))
-    ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.quantized_bed.collect{it[1]}.ifEmpty([]))
-    ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.quantized_csi.collect{it[1]}.ifEmpty([]))
+    // ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.global_txt.collect{it[1]}.ifEmpty([]))
+    // ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.summary_txt.collect{it[1]}.ifEmpty([]))
+    // ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.regions_txt.collect{it[1]}.ifEmpty([]))
+    // ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.regions_bed.collect{it[1]}.ifEmpty([]))
+    // ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.regions_csi.collect{it[1]}.ifEmpty([]))
+    // ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.quantized_bed.collect{it[1]}.ifEmpty([]))
+    // ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.quantized_csi.collect{it[1]}.ifEmpty([]))
 
 
 
