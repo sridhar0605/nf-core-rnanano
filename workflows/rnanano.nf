@@ -54,10 +54,10 @@ include { PYCOQC                      } from '../modules/local/pycoqc'
 include { NANOPLOT                    } from '../modules/local/nanoplot'
 include { MINIMAP_ALIGNER             } from '../modules/local/minimap2_aligner'
 include { SAMTOOLS_MERGE              } from '../modules/local/SAMTOOLS_MERGE'
-include { PEPPER                      } from '../modules/local/PEPPER'
+// include { PEPPER                      } from '../modules/local/PEPPER'
 include { SAMTOOLS_INDEX              } from '../modules/local/SAMTOOLS_INDEX'
-include { MOSDEPTH                    } from '../modules/local/MOSDEPTH'
-include { MODBAM2BED                  } from '../modules/local/MODBAM2BED'
+// include { MOSDEPTH                    } from '../modules/local/MOSDEPTH'
+// include { MODBAM2BED                  } from '../modules/local/MODBAM2BED'
 include { CUSTOM_DUMPSOFTWAREVERSIONS } from '../modules/nf-core/custom/dumpsoftwareversions/main'
 include { MULTIQC                     } from '../modules/local/MULTIQC'
 
@@ -184,10 +184,10 @@ workflow RNANANO {
     //
     // MODULE: MultiQC
     //
-    workflow_summary    = WorkflowWgsnano.paramsSummaryMultiqc(workflow, summary_params)
+    workflow_summary    = Workflowrnanano.paramsSummaryMultiqc(workflow, summary_params)
     ch_workflow_summary = Channel.value(workflow_summary)
 
-    methods_description    = WorkflowWgsnano.methodsDescriptionText(workflow, ch_multiqc_custom_methods_description)
+    methods_description    = Workflowrnanano.methodsDescriptionText(workflow, ch_multiqc_custom_methods_description)
     ch_methods_description = Channel.value(methods_description)
 
     ch_multiqc_files = Channel.empty()

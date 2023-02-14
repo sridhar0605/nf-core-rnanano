@@ -34,13 +34,13 @@ WorkflowMain.initialise(workflow, params, log)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-include { WGSNANO } from './workflows/wgsnano'
+include { RNANANO } from './workflows/rnanano'
 
 //
 // WORKFLOW: Run main nf-core/wgsnano analysis pipeline
 //
 workflow NFCORE_WGSNANO {
-    WGSNANO ()
+    RNANANO ()
     // Emit for testing purpose
     // emit: WGSNANO.out
 }
@@ -56,7 +56,7 @@ workflow NFCORE_WGSNANO {
 // See: https://github.com/nf-core/rnaseq/issues/619
 //
 workflow {
-    NFCORE_WGSNANO ()
+    NFCORE_RNANANO ()
     // Emit for testing purpose
     // emit: NFCORE_WGSNANO.out.view()
 }
