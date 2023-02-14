@@ -7,7 +7,7 @@
 def summary_params = NfcoreSchema.paramsSummaryMap(workflow, params)
 
 // Validate input parameters
-Workflowrnanano.initialise(params, log)
+WorkflowRnanano.initialise(params, log)
 
 // TODO nf-core: Add all file path parameters for the pipeline to the list below
 // Check input path parameters to see if they exist
@@ -184,10 +184,10 @@ workflow RNANANO {
     //
     // MODULE: MultiQC
     //
-    workflow_summary    = Workflowrnanano.paramsSummaryMultiqc(workflow, summary_params)
+    workflow_summary    = WorkflowRnanano.paramsSummaryMultiqc(workflow, summary_params)
     ch_workflow_summary = Channel.value(workflow_summary)
 
-    methods_description    = Workflowrnanano.methodsDescriptionText(workflow, ch_multiqc_custom_methods_description)
+    methods_description    = WorkflowRnanano.methodsDescriptionText(workflow, ch_multiqc_custom_methods_description)
     ch_methods_description = Channel.value(methods_description)
 
     ch_multiqc_files = Channel.empty()
