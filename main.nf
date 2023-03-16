@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    nf-core/wgsnano
+    nf-core/rnanano
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Github : https://github.com/nf-core/wgsnano
 
@@ -34,13 +34,13 @@ WorkflowMain.initialise(workflow, params, log)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-include { rnanano } from './workflows/rnanano'
+include { RNANANO  } from './workflows/rnanano'
 
 //
 // WORKFLOW: Run main nf-core/wgsnano analysis pipeline
 //
 workflow NFCORE_RNANANO {
-    rnanano ()
+    RNANANO  ()
     // Emit for testing purpose
     // emit: WGSNANO.out
 }

@@ -8,7 +8,7 @@ process NANOPLOT {
         'sridnona/nanopack-flair:v1.5-7' }"
 
     input:
-    tuple val(meta), path(ontfile)
+    tuple val(meta), path (ontfile)
 
     output:
     tuple val(meta), path("$output_html"), emit: html
@@ -20,7 +20,7 @@ process NANOPLOT {
     script:
     //def args = task.ext.args ?: ''
     // $options.args \\
-    def input_file = ("$ontfile".endsWith(".fastq.gz")) ? "--fastq ${ontfile}" :
+    def input_file = ("$ontfile".endsWith(".fastq.gz")) ? "--fastq ${ontfile}" :  ''
                     ("$ontfile".endsWith(".txt")) ? "--summary ${ontfile}" : ''
                     ("$ontfile".endsWith(".bam")) ? "--bam ${ontfile}" : ''
     def output_dir = ("$ontfile".endsWith(".fastq.gz")) ? "fastq/${meta.id}" :

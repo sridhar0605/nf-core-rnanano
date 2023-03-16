@@ -7,7 +7,8 @@ process MINIMAP2_ALIGN {
         'quay.io/biocontainers/minimap2:2.17--hed695b0_3' }"
 
     input:
-    tuple val(meta), path(unaligned_bams_paths) , path(reference_fasta), val(bed)
+    tuple val(meta)
+    path(reference_fasta)
 
     output:
     tuple val(meta), path ("alignment/*.sam") , emit: sams

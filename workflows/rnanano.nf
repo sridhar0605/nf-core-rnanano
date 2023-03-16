@@ -49,10 +49,14 @@ include { INPUT_CHECK } from '../subworkflows/local/input_check'
 // MODULE: Installed directly from nf-core/modules
 //
 include { GUPPY_BASECALLER            } from '../modules/local/guppy_basecaller'
-include { GUPPY_BASECALLER_GPU        } from '../modules/local/guppy_basecaller_gpu'
+include { GUPPY_BASECALLER_GPU } from '../modules/local/guppy_basecaller_gpu'
 include { PYCOQC                      } from '../modules/local/pycoqc'
-include { NANOPLOT                    } from '../modules/local/nanoplot'
-include { MINIMAP_ALIGNER             } from '../modules/local/minimap2_align'
+// if you need to use the same function/module again then we need to use
+// module aliasing https://www.nextflow.io/docs/latest/dsl2.html#module-aliases
+include { NANOPLOT as NANOPLOT_basecall } from '../modules/local/nanoplot'
+include { NANOPLOT as NANOPLOT_fq } from '../modules/local/nanoplot'
+include { NANOPLOT as NANOPLOT_bam } from '../modules/local/nanoplot'
+include { MINIMAP2_ALIGN             } from '../modules/local/minimap2_align'
 include { SAMTOOLS_MERGE              } from '../modules/local/samtools_merge'
 // include { PEPPER                      } from '../modules/local/PEPPER'
 include { SAMTOOLS_INDEX              } from '../modules/local/samtools_index'
@@ -118,18 +122,18 @@ workflow RNANANO {
     //
     // MODULE Nanoplot seq summary file
     //
-    NANOPLOT(
+    NANOPLOT_basecall (
         ch_basecall_out.summary
     )
-    ch_versions = ch_versions.mix(NANOPLOT.out.versions)
+    ch_versions = ch_versions.mix(NANOPLOT_basecall.out.versions)
 
     //
     // MODULE Nanoplot seq fastq file
     //
-    NANOPLOT(
+    NANOPLOT_fq (
         INPUT_CHECK.out.reads
     )
-    ch_versions = ch_versions.mix(NANOPLOT.out.versions)
+    ch_versions = ch_versions.mix(NANOPLOT_fq.out.versions)
 
 
 
@@ -146,11 +150,11 @@ workflow RNANANO {
     //
     // MODULE: GUPPY_ALIGNER for Alignment
     //
-    MINIMAP_ALIGNER (
+    MINIMAP2_ALIGN (
         ch_bams_path_per_sample,
         file(params.fasta)
     )
-    ch_versions = ch_versions.mix(MINIMAP_ALIGNER.out.versions)
+    ch_versions = ch_versions.mix(MINIMAP2_ALIGN.out.versions)
 
     
 
@@ -158,8 +162,7 @@ workflow RNANANO {
     // MODULE: Samtools merge all bams
     //
     SAMTOOLS_MERGE (
-        MINIMAP_ALIGNER.out.bams,
-        MINIMAP_ALIGNER.out.bais
+        MINIMAP2_ALIGN.out.sams
     )
     ch_versions = ch_versions.mix(SAMTOOLS_MERGE.out.versions)
 
@@ -167,11 +170,10 @@ workflow RNANANO {
     //
     // MODULE Nanoplot seq bam file
     //
-    NANOPLOT(
-        SAMTOOLS_MERGE.out.bam,
-        SAMTOOLS_MERGE.out.bai
+    NANOPLOT_bam(
+        SAMTOOLS_MERGE.out.bam
     )
-    ch_versions = ch_versions.mix(NANOPLOT.out.versions)
+    ch_versions = ch_versions.mix(NANOPLOT_bam.out.versions)
 
     
 
