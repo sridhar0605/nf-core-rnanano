@@ -24,11 +24,11 @@ workflow INPUT_CHECK {
 def create_fast5_channel(LinkedHashMap row) {
     // create meta map
     def meta = [:]
-    meta.id         = row.id
-    meta.sample         = row.sample
-    meta.flowcell         = row.flowcell
-    meta.batch         = row.batch
-    meta.kit         = row.kit
+        meta.id         = row.id
+        meta.sample         = row.sample
+        meta.flowcell         = row.flowcell
+        meta.batch         = row.batch
+        meta.kit         = row.kit
 
     // add path(s) of the fast5 files to the meta map
     def fast5_meta = []

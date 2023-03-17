@@ -26,10 +26,10 @@ process NANOPLOT {
     def output_dir = ("$ontfile".endsWith(".fastq.gz")) ? "fastq/${meta.id}" :
                     ("$ontfile".endsWith(".txt")) ? "summary" : ''
                     ("$ontfile".endsWith(".bam")) ? "bam" : ''
-    output_html = output_dir+"/*.html"
-    output_png  = output_dir+"/*.png"
-    output_txt  = output_dir+"/*.txt"
-    output_log  = output_dir+"/*.log"
+    // output_html = output_dir+'/*.html'
+    // output_png  = output_dir+'/*.png'
+    // output_txt  = output_dir+'/*.txt'
+    // output_log  = output_dir+'/*.log'
     """
     NanoPlot \\
         -t $task.cpus \\

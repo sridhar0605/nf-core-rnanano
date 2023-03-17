@@ -17,7 +17,7 @@ process GUPPY_BASECALLER {
 
     script:
         """
-        guppy_basecaller -i $fast5_path --bam_out -s unaligned_bam -c /opt/ont/guppy/data/${params.basecall_config} --num_callers ${task.cpus}
+        guppy_basecaller -i $fast5_path/ --bam_out -s unaligned_bam -c /opt/ont/guppy/data/${params.basecall_config} --num_callers ${task.cpus}
 
         cat unaligned_bam/pass/*.fastq > ${meta.id}.fastq
         gzip ${meta.id}.fastq

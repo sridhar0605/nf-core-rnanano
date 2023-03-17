@@ -131,7 +131,7 @@ workflow RNANANO {
     // MODULE Nanoplot seq fastq file
     //
     NANOPLOT_fq (
-        INPUT_CHECK.out.reads
+        ch_basecall_out.fastq
     )
     ch_versions = ch_versions.mix(NANOPLOT_fq.out.versions)
 
