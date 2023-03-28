@@ -12,7 +12,7 @@ process GUPPY_BASECALLER_GPU {
     output:
         tuple val(meta), path ("basecall_${meta.id}_summary/sequencing_summary.txt")  , emit: summary
         tuple val(meta), path ("basecall_${meta.id}_bams")       , emit: basecall_bams_path
-        tuple val(meta), path ("*.fastq.gz")    , emit: fastq
+        tuple val(meta), path ("basecall_${meta.id}.fastq")    , emit: fastq
         path "versions.yml"                     , emit: versions
 
     script:

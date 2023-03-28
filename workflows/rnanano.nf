@@ -140,18 +140,18 @@ workflow RNANANO {
     //
     // CHANNEL: Channel operation group unaligned bams paths by sample (i.e bams of reads from multiple flow cells but the same sample streamed together to be fed for alignment module)
     //
-    ch_basecall_out // basecll output channel
-    .basecall_bams_path // bams path output
-    .map { mata, bams -> [[sample: mata.sample] , bams]} // make sample name the only mets (remove flow cell and other info)
-    .groupTuple(by: 0) // group bams by meta (i.e sample) which zero indexed
-    .set { ch_bams_path_per_sample } // set channel name
+    // ch_basecall_out // basecll output channel
+    // .fastq // bams path output
+    // .map { meta, bams -> [[sample: meta.sample] , fastq]} // make sample name the only mets (remove flow cell and other info)
+    // .groupTuple(by: 0) // group bams by meta (i.e sample) which zero indexed
+    // .set { ch_fastq_path_per_sample } // set channel name
 
 
     //
     // MODULE: GUPPY_ALIGNER for Alignment
     //
     MINIMAP2_ALIGN (
-        ch_bams_path_per_sample,
+        ch_basecall_out.fastq,
         file(params.fasta)
     )
     ch_versions = ch_versions.mix(MINIMAP2_ALIGN.out.versions)

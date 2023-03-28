@@ -4,8 +4,8 @@ process NANOPLOT {
 
     conda (params.enable_conda ? 'bioconda::nanoplot=1.38.0' : null)
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'sridnona/nanopack-flair:v1.5-7' :
-        'sridnona/nanopack-flair:v1.5-7' }"
+        'quay.io/biocontainers/nanoplot:1.41.0--pyhdfd78af_0' :
+        'quay.io/biocontainers/nanoplot:1.41.0--pyhdfd78af_0' }"
 
     input:
     tuple val(meta), path (ontfile)

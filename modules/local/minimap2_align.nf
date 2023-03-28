@@ -7,8 +7,8 @@ process MINIMAP2_ALIGN {
         'quay.io/biocontainers/minimap2:2.17--hed695b0_3' }"
 
     input:
-    tuple val(meta)
-    path(reference_fasta)
+    tuple val(meta), path(fastq)
+    path reference_fasta
 
     output:
     tuple val(meta), path ("alignment/*.sam") , emit: sams
@@ -21,7 +21,7 @@ process MINIMAP2_ALIGN {
     minimap2 \\
         -ax splice \\
         -t $task.cpus \\
-        $ref \\
+        $reference_fasta \\
         $fastq > ${meta.id}.sam
 
     cat <<-END_VERSIONS > versions.yml
