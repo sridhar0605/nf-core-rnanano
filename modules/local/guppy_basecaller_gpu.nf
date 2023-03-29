@@ -10,9 +10,9 @@ process GUPPY_BASECALLER_GPU {
         tuple val(meta), path (fast5_path)
 
     output:
-        tuple val(meta), path ("basecall_${meta.id}_summary/sequencing_summary.txt")  , emit: summary
+        tuple val(meta), path ("${meta.id}_sequencing_summary.txt")  , emit: summary
         tuple val(meta), path ("basecall_${meta.id}_bams")       , emit: basecall_bams_path
-        tuple val(meta), path ("basecall_${meta.id}.fastq")    , emit: fastq
+        tuple val(meta), path ("${meta.id}.fastq.gz")    , emit: fastq
         path "versions.yml"                     , emit: versions
 
     script:
@@ -21,7 +21,7 @@ process GUPPY_BASECALLER_GPU {
 
         cat unaligned_bam/pass/*.fastq > ${meta.id}.fastq
         gzip ${meta.id}.fastq
-        mkdir basecall_${meta.id}_summary && mv unaligned_bam/sequencing_* basecall_${meta.id}_summary
+        mv unaligned_bam/sequencing_summary.txt ${meta.id}_sequencing_summary.txt
         mkdir basecall_${meta.id}_bams && mv unaligned_bam/pass/*.bam basecall_${meta.id}_bams
         rm -rf unaligned_bam
 

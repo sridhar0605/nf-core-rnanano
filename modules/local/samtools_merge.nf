@@ -10,15 +10,15 @@ process SAMTOOLS_MERGE {
         tuple val(meta), path(aligned_sams)
 
     output:
-        tuple val(meta), path("${meta.sample}.bam")    , emit: bam
-        tuple val(meta), path("${meta.sample}.bam.bai"), emit: bai
+        tuple val(meta), path("${meta.id}.bam")    , emit: bam
+        tuple val(meta), path("${meta.id}.bam.bai"), emit: bai
         path  ("versions.yml")                                , emit: versions
 
     script:
     """
-    samtools view -bS -@ ${task.cpus} -o ${meta.sample}_unsorted.bam $aligned_bams &&
-    samtools sort -o ${meta.sample}.bam ${meta.sample}_unsorted.bam &&
-    samtools index ${meta.sample}.bam
+    samtools view -bS -@ ${task.cpus} -o ${meta.id}_unsorted.bam $aligned_sams &&
+    samtools sort -o ${meta.id}.bam ${meta.id}_unsorted.bam &&
+    samtools index ${meta.id}.bam
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

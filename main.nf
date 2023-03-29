@@ -3,9 +3,9 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     nf-core/rnanano
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Github : https://github.com/nf-core/wgsnano
+    Github : https://github.com/nf-core/rnanano
 
-    Website: https://nf-co.re/wgsnano
+    Website: https://nf-co.re/rnanano
     Slack  : https://nfcore.slack.com/channels/wgsnano
 ----------------------------------------------------------------------------------------
 */
@@ -37,7 +37,7 @@ WorkflowMain.initialise(workflow, params, log)
 include { RNANANO  } from './workflows/rnanano'
 
 //
-// WORKFLOW: Run main nf-core/wgsnano analysis pipeline
+// WORKFLOW: Run main nf-core/rnanano analysis pipeline
 //
 workflow NFCORE_RNANANO {
     RNANANO  ()

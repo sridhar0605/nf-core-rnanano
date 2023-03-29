@@ -11,7 +11,7 @@ process MINIMAP2_ALIGN {
     path reference_fasta
 
     output:
-    tuple val(meta), path ("alignment/*.sam") , emit: sams
+    tuple val(meta), path ("*.sam") , emit: sams
     path ("versions.yml")                     , emit: versions
 
     script:
