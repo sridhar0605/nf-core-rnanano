@@ -16,9 +16,10 @@ process SAMTOOLS_MERGE {
 
     script:
     """
-    samtools view -bS -@ ${task.cpus} -o ${meta.id}_unsorted.bam $aligned_sams &&
-    samtools sort -o ${meta.id}.bam ${meta.id}_unsorted.bam &&
-    samtools index ${meta.id}.bam
+    samtools merge -@ ${task.cpus} -o ${meta.sample}_unsorted.bam $aligned_bams 
+    samtools view -bS -@ ${task.cpus} -o ${meta.sample}_unsorted.bam $aligned_sams &&
+    samtools sort -o ${meta.sample}.bam ${meta.sample}_unsorted.bam &&
+    samtools index ${meta.sample}.bam
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

@@ -10,9 +10,9 @@ process GUPPY_BASECALLER {
         tuple val(meta), path (fast5_path)
 
     output:
-        tuple val(meta), path ("basecall_${meta.id}_summary/sequencing_summary.txt")  , emit: summary
+        tuple val(meta), path ("${meta.id}_sequencing_summary.txt")  , emit: summary
         tuple val(meta), path ("basecall_${meta.id}_bams")       , emit: basecall_bams_path
-        tuple val(meta), path ("*.fastq.gz")    , emit: fastq
+        tuple val(meta), path ("${meta.id}.fastq.gz")    , emit: fastq
         path "versions.yml"                           , emit: versions
 
     script:

@@ -155,12 +155,24 @@ workflow RNANANO {
         file(params.fasta)
     )
     ch_versions = ch_versions.mix(MINIMAP2_ALIGN.out.versions)
+    ch_minimap_out = MINIMAP2_ALIGN.sams
 
     
 
     //
     // MODULE: Samtools merge all bams
     //
+
+    //
+    // CHANNEL: Channel operation group unaligned bams paths by sample (i.e bams of reads from multiple flow cells but the same sample streamed together to be fed for alignment module)
+    //
+    ch_minimap_out // minimap2  output channel
+    .sams // bams path output
+    .map { meta, bams -> [[sample: meta.sample] , sams]} // make sample name the only mets (remove flow cell and other info)
+    .groupTuple(by: 0) // group bams by meta (i.e sample) which zero indexed
+    .set { ch_sams_path_per_sample } // set channel name
+
+
     SAMTOOLS_MERGE (
         MINIMAP2_ALIGN.out.sams
     )

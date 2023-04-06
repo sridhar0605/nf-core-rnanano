@@ -3,7 +3,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     nf-core/rnanano
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Github : https://github.com/nf-core/rnanano
+    Github : https://github.com/sridhar0605/nf-core-rnanano
 
     Website: https://nf-co.re/rnanano
     Slack  : https://nfcore.slack.com/channels/wgsnano
@@ -42,7 +42,7 @@ include { RNANANO  } from './workflows/rnanano'
 workflow NFCORE_RNANANO {
     RNANANO  ()
     // Emit for testing purpose
-    // emit: WGSNANO.out
+    // emit: RNANANO.out
 }
 
 /*

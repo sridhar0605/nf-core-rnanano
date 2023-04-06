@@ -11,8 +11,8 @@ process SAMTOOLS_INDEX {
     tuple val(meta), path(input)
 
     output:
-    tuple val(meta), path("${meta.sample}.haplotagged.bam")     , emit: bam
-    tuple val(meta), path("${meta.sample}.haplotagged.bam.bai") , emit: bai
+    tuple val(meta), path("${meta.sample}.bam")     , emit: bam
+    tuple val(meta), path("${meta.sample}.bam.bai") , emit: bai
     path  "versions.yml"                                        , emit: versions
 
     script:
