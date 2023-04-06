@@ -1,4 +1,4 @@
-process SAMTOOLS_MERGE {
+process SAMTOOLS_CONVERT {
     label 'process_high'
 
     conda "bioconda::samtools=1.16.1"
@@ -10,14 +10,15 @@ process SAMTOOLS_MERGE {
         tuple val(meta), path(aligned_sams)
 
     output:
-        tuple val(meta), path("${meta.sample}.bam")    , emit: bam
-        tuple val(meta), path("${meta.sample}.bam.bai"), emit: bai
+        tuple val(meta), path("${meta.id}.bam")    , emit: bam
+        tuple val(meta), path("${meta.id}.bam.bai"), emit: bai
         path  ("versions.yml")                                , emit: versions
 
     script:
     """
-    samtools merge -@ ${task.cpus} -o ${meta.sample}.bam $aligned_sams &&
-    samtools index ${meta.sample}.bam
+    samtools view -bS -@ ${task.cpus} -o ${meta.id}_unsorted.bam $aligned_sams &&
+    samtools sort -o ${meta.id}.bam ${meta.id}_unsorted.bam &&
+    samtools index ${meta.id}.bam
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
