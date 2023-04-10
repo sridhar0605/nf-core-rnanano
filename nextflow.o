@@ -1,5 +1,5 @@
 N E X T F L O W  ~  version 22.10.4
-Launching `main.nf` [ridiculous_khorana] DSL2 - revision: d8854c0a32
+Launching `main.nf` [suspicious_rosalind] DSL2 - revision: d8854c0a32
 
 
 ------------------------------------------------------
@@ -11,7 +11,7 @@ Launching `main.nf` [ridiculous_khorana] DSL2 - revision: d8854c0a32
   nf-core/wgsnano v1.0dev
 ------------------------------------------------------
 Core Nextflow options
-  runName    : ridiculous_khorana
+  runName    : suspicious_rosalind
   launchDir  : /storage1/fs1/timley/Active/aml_ppg/analysis/ppg/sridnona/dev/git_repo/nf-core-rnanano
   workDir    : /storage1/fs1/timley/Active/aml_ppg/analysis/ppg/sridnona/dev/git_repo/nf-core-rnanano/work
   projectDir : /storage1/fs1/timley/Active/aml_ppg/analysis/ppg/sridnona/dev/git_repo/nf-core-rnanano
@@ -36,6 +36,17 @@ If you use nf-core/wgsnano for your analysis please cite:
 * Software dependencies
   https://github.com/nf-core/wgsnano/blob/master/CITATIONS.md
 ------------------------------------------------------
+
+WARN: Found unexpected parameters:
+* --gtf: /storage1/fs1/bga/Active/gmsroot/gc2560/core/GRC-human-build38_human_95_38_U2AF1_fix/rna_seq_annotation/Homo_sapiens.GRCh38.95.gtf
+- Ignore this warning: params.schema_ignore_params = "gtf" 
+
+[-        ] process > NFCORE_RNANANO:RNANANO:INPU... -
+[-        ] process > NFCORE_RNANANO:RNANANO:GUPP... -
+[-        ] process > NFCORE_RNANANO:RNANANO:PYCOQC  -
+[-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
+WARN: Access to undefined parameter `enable_conda` -- Initialise it to a default value eg. `params.enable_conda = some_value`
+
 [-        ] process > NFCORE_RNANANO:RNANANO:INPU... -
 [-        ] process > NFCORE_RNANANO:RNANANO:GUPP... -
 [-        ] process > NFCORE_RNANANO:RNANANO:PYCOQC  -
@@ -45,9 +56,12 @@ If you use nf-core/wgsnano for your analysis please cite:
 [-        ] process > NFCORE_RNANANO:RNANANO:SAMT... -
 [-        ] process > NFCORE_RNANANO:RNANANO:SAMT... -
 [-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
+[-        ] process > NFCORE_RNANANO:RNANANO:STRI... -
+[-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
+[-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
 WARN: Access to undefined parameter `enable_conda` -- Initialise it to a default value eg. `params.enable_conda = some_value`
 
-[-        ] process > NFCORE_RNANANO:RNANANO:INPU... -
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
 [-        ] process > NFCORE_RNANANO:RNANANO:GUPP... -
 [-        ] process > NFCORE_RNANANO:RNANANO:PYCOQC  -
 [-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
@@ -56,12 +70,13 @@ WARN: Access to undefined parameter `enable_conda` -- Initialise it to a default
 [-        ] process > NFCORE_RNANANO:RNANANO:SAMT... -
 [-        ] process > NFCORE_RNANANO:RNANANO:SAMT... -
 [-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
+[-        ] process > NFCORE_RNANANO:RNANANO:STRI... -
 [-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
 [-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
 WARN: Access to undefined parameter `enable_conda` -- Initialise it to a default value eg. `params.enable_conda = some_value`
 
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[-        ] process > NFCORE_RNANANO:RNANANO:GUPP... -
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
 [-        ] process > NFCORE_RNANANO:RNANANO:PYCOQC  -
 [-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
 [-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
@@ -69,384 +84,333 @@ WARN: Access to undefined parameter `enable_conda` -- Initialise it to a default
 [-        ] process > NFCORE_RNANANO:RNANANO:SAMT... -
 [-        ] process > NFCORE_RNANANO:RNANANO:SAMT... -
 [-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
+[-        ] process > NFCORE_RNANANO:RNANANO:STRI... -
 [-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
 [-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
 WARN: Access to undefined parameter `enable_conda` -- Initialise it to a default value eg. `params.enable_conda = some_value`
 
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8
-[-        ] process > NFCORE_RNANANO:RNANANO:PYCOQC  -
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[76/9ec565] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 1 of 1, cached: 1
 [-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
 [-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
-[-        ] process > NFCORE_RNANANO:RNANANO:MINI... -
-[-        ] process > NFCORE_RNANANO:RNANANO:SAMT... -
-[-        ] process > NFCORE_RNANANO:RNANANO:SAMT... -
-[-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
-[-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
-[-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
-WARN: Access to undefined parameter `enable_conda` -- Initialise it to a default value eg. `params.enable_conda = some_value`
-
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[25/38a4c9] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 6 of 6, cached: 6
-[-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
-[-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
-[c6/654f0e] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 4 of 4, cached: 4
-[11/9b577f] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 1 of 1, cached: 1
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[2d/49c2a6] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2, cached: 2
 [-        ] process > NFCORE_RNANANO:RNANANO:SAMT... -
 [-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
+[-        ] process > NFCORE_RNANANO:RNANANO:STRI... -
 [-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
 [-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
 WARN: Access to undefined parameter `enable_conda` -- Initialise it to a default value eg. `params.enable_conda = some_value`
 
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[2b/314667] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
 [-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
 [-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[61/82d51a] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
 [-        ] process > NFCORE_RNANANO:RNANANO:SAMT... -
 [-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
+[-        ] process > NFCORE_RNANANO:RNANANO:STRI... -
 [-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
 [-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
 WARN: Access to undefined parameter `enable_conda` -- Initialise it to a default value eg. `params.enable_conda = some_value`
 
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[2b/314667] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
 [-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
-[ea/6ffc3e] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 6 of 6, cached: 6
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[-        ] process > NFCORE_RNANANO:RNANANO:SAMT... [  0%] 0 of 2
 [-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[61/82d51a] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
+[4d/d715a2] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2, cached: 2 ✔
+[-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
+[-        ] process > NFCORE_RNANANO:RNANANO:STRI... -
 [-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
 [-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
 WARN: Access to undefined parameter `enable_conda` -- Initialise it to a default value eg. `params.enable_conda = some_value`
 
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[21/d68155] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2, cached: 2
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[-        ] process > NFCORE_RNANANO:RNANANO:SAMT... [  0%] 0 of 2
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[2b/314667] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
 [-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
+[5b/e0a486] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 5 of 5, cached: 5
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[61/82d51a] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
+[4d/d715a2] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2, cached: 2 ✔
+[-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
+[-        ] process > NFCORE_RNANANO:RNANANO:STRI... [  0%] 0 of 1
 [-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
 [-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
 WARN: Access to undefined parameter `enable_conda` -- Initialise it to a default value eg. `params.enable_conda = some_value`
 
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[-        ] process > NFCORE_RNANANO:RNANANO:SAMT... [  0%] 0 of 2
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[2b/314667] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
+[1c/2d8f95] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2, cached: 2
+[81/730072] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[61/82d51a] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
+[4d/d715a2] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2, cached: 2 ✔
 [-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
+[-        ] process > NFCORE_RNANANO:RNANANO:STRI... [  0%] 0 of 2
 [-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
 [-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
 WARN: Access to undefined parameter `enable_conda` -- Initialise it to a default value eg. `params.enable_conda = some_value`
 
 executor >  lsf (1)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[6a/f17612] process > NFCORE_RNANANO:RNANANO:SAMT... [  0%] 0 of 2
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[2b/314667] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
+[28/b38f0d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[81/730072] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[61/82d51a] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
+[4d/d715a2] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2, cached: 2 ✔
 [-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
+[01/2f392a] process > NFCORE_RNANANO:RNANANO:STRI... [  0%] 0 of 2
 [-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
 [-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
 WARN: Access to undefined parameter `enable_conda` -- Initialise it to a default value eg. `params.enable_conda = some_value`
 
 executor >  lsf (2)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[18/d6d045] process > NFCORE_RNANANO:RNANANO:SAMT... [  0%] 0 of 2
-[-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[2b/314667] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
+[28/b38f0d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[81/730072] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[61/82d51a] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
+[4d/d715a2] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2, cached: 2 ✔
+[f9/ad499d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2, cached: 2 ✔
+[2f/c6f2af] process > NFCORE_RNANANO:RNANANO:STRI... [  0%] 0 of 2
 [-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
 [-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
 WARN: Access to undefined parameter `enable_conda` -- Initialise it to a default value eg. `params.enable_conda = some_value`
 
 executor >  lsf (2)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[18/d6d045] process > NFCORE_RNANANO:RNANANO:SAMT... [  0%] 0 of 2
-[-        ] process > NFCORE_RNANANO:RNANANO:NANO... -
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[2b/314667] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
+[28/b38f0d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[81/730072] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[61/82d51a] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
+[4d/d715a2] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2, cached: 2 ✔
+[f9/ad499d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2, cached: 2 ✔
+[2f/c6f2af] process > NFCORE_RNANANO:RNANANO:STRI... [  0%] 0 of 2
 [-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
 [-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
 WARN: Access to undefined parameter `enable_conda` -- Initialise it to a default value eg. `params.enable_conda = some_value`
 
 executor >  lsf (2)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[6a/f17612] process > NFCORE_RNANANO:RNANANO:SAMT... [ 50%] 1 of 2
-[-        ] process > NFCORE_RNANANO:RNANANO:NANO... [  0%] 0 of 1
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[2b/314667] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
+[28/b38f0d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[81/730072] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[61/82d51a] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
+[4d/d715a2] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2, cached: 2 ✔
+[f9/ad499d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2, cached: 2 ✔
+[2f/c6f2af] process > NFCORE_RNANANO:RNANANO:STRI... [  0%] 0 of 2
+[-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
+[-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
+WARN: Access to undefined parameter `enable_conda` -- Initialise it to a default value eg. `params.enable_conda = some_value`
+
+executor >  lsf (2)
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[2b/314667] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
+[28/b38f0d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[81/730072] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[61/82d51a] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
+[4d/d715a2] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2, cached: 2 ✔
+[f9/ad499d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2, cached: 2 ✔
+[01/2f392a] process > NFCORE_RNANANO:RNANANO:STRI... [ 50%] 1 of 2
 [-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
 [-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
 
 
-executor >  lsf (3)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[6a/f17612] process > NFCORE_RNANANO:RNANANO:SAMT... [ 50%] 1 of 2
-[be/817cae] process > NFCORE_RNANANO:RNANANO:NANO... [  0%] 0 of 1
+executor >  lsf (2)
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[2b/314667] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
+[28/b38f0d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[81/730072] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[61/82d51a] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
+[4d/d715a2] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2, cached: 2 ✔
+[f9/ad499d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2, cached: 2 ✔
+[2f/c6f2af] process > NFCORE_RNANANO:RNANANO:STRI... [100%] 2 of 2 ✔
 [-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
 [-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
 
 
-executor >  lsf (3)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[6a/f17612] process > NFCORE_RNANANO:RNANANO:SAMT... [ 50%] 1 of 2
-[be/817cae] process > NFCORE_RNANANO:RNANANO:NANO... [  0%] 0 of 1
-[-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
-[-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
-
-executor >  lsf (3)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[6a/f17612] process > NFCORE_RNANANO:RNANANO:SAMT... [ 50%] 1 of 2
-[be/817cae] process > NFCORE_RNANANO:RNANANO:NANO... [  0%] 0 of 1
-[-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
-[-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
-
-executor >  lsf (3)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[18/d6d045] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2 ✔
-[be/817cae] process > NFCORE_RNANANO:RNANANO:NANO... [  0%] 0 of 2
-[-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
-[-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
-
-executor >  lsf (4)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[18/d6d045] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2 ✔
-[b6/0eb0d9] process > NFCORE_RNANANO:RNANANO:NANO... [  0%] 0 of 2
-[-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
-[-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
-
-executor >  lsf (4)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[18/d6d045] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2 ✔
-[b6/0eb0d9] process > NFCORE_RNANANO:RNANANO:NANO... [  0%] 0 of 2
-[-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
-[-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
-
-executor >  lsf (4)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[18/d6d045] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2 ✔
-[be/817cae] process > NFCORE_RNANANO:RNANANO:NANO... [ 50%] 1 of 2
-[-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
-[-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
-
-executor >  lsf (4)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[18/d6d045] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2 ✔
-[b6/0eb0d9] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2 ✔
-[-        ] process > NFCORE_RNANANO:RNANANO:CUST... -
-[-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
-
-executor >  lsf (4)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[18/d6d045] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2 ✔
-[b6/0eb0d9] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2 ✔
+executor >  lsf (2)
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[2b/314667] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
+[28/b38f0d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[81/730072] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[61/82d51a] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
+[4d/d715a2] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2, cached: 2 ✔
+[f9/ad499d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2, cached: 2 ✔
+[2f/c6f2af] process > NFCORE_RNANANO:RNANANO:STRI... [100%] 2 of 2 ✔
 [-        ] process > NFCORE_RNANANO:RNANANO:CUST... [  0%] 0 of 1
 [-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
 
-executor >  lsf (5)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[18/d6d045] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2 ✔
-[b6/0eb0d9] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2 ✔
-[cc/b419b4] process > NFCORE_RNANANO:RNANANO:CUST... [  0%] 0 of 1
+executor >  lsf (3)
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[2b/314667] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
+[28/b38f0d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[81/730072] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[61/82d51a] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
+[4d/d715a2] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2, cached: 2 ✔
+[f9/ad499d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2, cached: 2 ✔
+[2f/c6f2af] process > NFCORE_RNANANO:RNANANO:STRI... [100%] 2 of 2 ✔
+[6e/6426ec] process > NFCORE_RNANANO:RNANANO:CUST... [  0%] 0 of 1
 [-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
 
-executor >  lsf (5)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[18/d6d045] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2 ✔
-[b6/0eb0d9] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2 ✔
-[cc/b419b4] process > NFCORE_RNANANO:RNANANO:CUST... [  0%] 0 of 1
+executor >  lsf (3)
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[2b/314667] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
+[28/b38f0d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[81/730072] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[61/82d51a] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
+[4d/d715a2] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2, cached: 2 ✔
+[f9/ad499d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2, cached: 2 ✔
+[2f/c6f2af] process > NFCORE_RNANANO:RNANANO:STRI... [100%] 2 of 2 ✔
+[6e/6426ec] process > NFCORE_RNANANO:RNANANO:CUST... [  0%] 0 of 1
 [-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
 
-executor >  lsf (5)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[18/d6d045] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2 ✔
-[b6/0eb0d9] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2 ✔
-[cc/b419b4] process > NFCORE_RNANANO:RNANANO:CUST... [100%] 1 of 1 ✔
+executor >  lsf (3)
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[2b/314667] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
+[28/b38f0d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[81/730072] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[61/82d51a] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
+[4d/d715a2] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2, cached: 2 ✔
+[f9/ad499d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2, cached: 2 ✔
+[2f/c6f2af] process > NFCORE_RNANANO:RNANANO:STRI... [100%] 2 of 2 ✔
+[6e/6426ec] process > NFCORE_RNANANO:RNANANO:CUST... [100%] 1 of 1 ✔
 [-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC -
 
-executor >  lsf (5)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[18/d6d045] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2 ✔
-[b6/0eb0d9] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2 ✔
-[cc/b419b4] process > NFCORE_RNANANO:RNANANO:CUST... [100%] 1 of 1 ✔
+executor >  lsf (3)
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[2b/314667] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
+[28/b38f0d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[81/730072] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[61/82d51a] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
+[4d/d715a2] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2, cached: 2 ✔
+[f9/ad499d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2, cached: 2 ✔
+[2f/c6f2af] process > NFCORE_RNANANO:RNANANO:STRI... [100%] 2 of 2 ✔
+[6e/6426ec] process > NFCORE_RNANANO:RNANANO:CUST... [100%] 1 of 1 ✔
 [-        ] process > NFCORE_RNANANO:RNANANO:MULTIQC [  0%] 0 of 1
 
-executor >  lsf (6)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[18/d6d045] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2 ✔
-[b6/0eb0d9] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2 ✔
-[cc/b419b4] process > NFCORE_RNANANO:RNANANO:CUST... [100%] 1 of 1 ✔
-[74/5f39f7] process > NFCORE_RNANANO:RNANANO:MULTIQC [  0%] 0 of 1
+executor >  lsf (4)
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[2b/314667] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
+[28/b38f0d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[81/730072] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[61/82d51a] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
+[4d/d715a2] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2, cached: 2 ✔
+[f9/ad499d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2, cached: 2 ✔
+[2f/c6f2af] process > NFCORE_RNANANO:RNANANO:STRI... [100%] 2 of 2 ✔
+[6e/6426ec] process > NFCORE_RNANANO:RNANANO:CUST... [100%] 1 of 1 ✔
+[34/d70c0c] process > NFCORE_RNANANO:RNANANO:MULTIQC [  0%] 0 of 1
 
-executor >  lsf (6)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[18/d6d045] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2 ✔
-[b6/0eb0d9] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2 ✔
-[cc/b419b4] process > NFCORE_RNANANO:RNANANO:CUST... [100%] 1 of 1 ✔
-[74/5f39f7] process > NFCORE_RNANANO:RNANANO:MULTIQC [  0%] 0 of 1
+executor >  lsf (4)
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[2b/314667] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
+[28/b38f0d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[81/730072] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[61/82d51a] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
+[4d/d715a2] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2, cached: 2 ✔
+[f9/ad499d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2, cached: 2 ✔
+[2f/c6f2af] process > NFCORE_RNANANO:RNANANO:STRI... [100%] 2 of 2 ✔
+[6e/6426ec] process > NFCORE_RNANANO:RNANANO:CUST... [100%] 1 of 1 ✔
+[34/d70c0c] process > NFCORE_RNANANO:RNANANO:MULTIQC [  0%] 0 of 1
 
-executor >  lsf (6)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[18/d6d045] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2 ✔
-[b6/0eb0d9] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2 ✔
-[cc/b419b4] process > NFCORE_RNANANO:RNANANO:CUST... [100%] 1 of 1 ✔
-[74/5f39f7] process > NFCORE_RNANANO:RNANANO:MULTIQC [100%] 1 of 1 ✔
+executor >  lsf (4)
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[2b/314667] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
+[28/b38f0d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[81/730072] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[61/82d51a] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
+[4d/d715a2] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2, cached: 2 ✔
+[f9/ad499d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2, cached: 2 ✔
+[2f/c6f2af] process > NFCORE_RNANANO:RNANANO:STRI... [100%] 2 of 2 ✔
+[6e/6426ec] process > NFCORE_RNANANO:RNANANO:CUST... [100%] 1 of 1 ✔
+[34/d70c0c] process > NFCORE_RNANANO:RNANANO:MULTIQC [100%] 1 of 1 ✔
 
-executor >  lsf (6)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[18/d6d045] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2 ✔
-[b6/0eb0d9] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2 ✔
-[cc/b419b4] process > NFCORE_RNANANO:RNANANO:CUST... [100%] 1 of 1 ✔
-[74/5f39f7] process > NFCORE_RNANANO:RNANANO:MULTIQC [100%] 1 of 1 ✔
+executor >  lsf (4)
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[2b/314667] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
+[28/b38f0d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[81/730072] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[61/82d51a] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
+[4d/d715a2] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2, cached: 2 ✔
+[f9/ad499d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2, cached: 2 ✔
+[2f/c6f2af] process > NFCORE_RNANANO:RNANANO:STRI... [100%] 2 of 2 ✔
+[6e/6426ec] process > NFCORE_RNANANO:RNANANO:CUST... [100%] 1 of 1 ✔
+[34/d70c0c] process > NFCORE_RNANANO:RNANANO:MULTIQC [100%] 1 of 1 ✔
+Waiting for file transfers to complete (1 files)
+
+executor >  lsf (4)
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[2b/314667] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
+[28/b38f0d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[81/730072] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[61/82d51a] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
+[4d/d715a2] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2, cached: 2 ✔
+[f9/ad499d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2, cached: 2 ✔
+[2f/c6f2af] process > NFCORE_RNANANO:RNANANO:STRI... [100%] 2 of 2 ✔
+[6e/6426ec] process > NFCORE_RNANANO:RNANANO:CUST... [100%] 1 of 1 ✔
+[34/d70c0c] process > NFCORE_RNANANO:RNANANO:MULTIQC [100%] 1 of 1 ✔
+Waiting for file transfers to complete (1 files)
 -[nf-core/wgsnano] Pipeline completed successfully-
 
-executor >  lsf (6)
-[f8/3ecb5d] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
-[7f/a4befb] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
-[a1/f68e82] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
-[1a/8278e1] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[7b/2f8808] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
-[46/7fe2f1] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
-[f1/76a433] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
-[18/d6d045] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2 ✔
-[b6/0eb0d9] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2 ✔
-[cc/b419b4] process > NFCORE_RNANANO:RNANANO:CUST... [100%] 1 of 1 ✔
-[74/5f39f7] process > NFCORE_RNANANO:RNANANO:MULTIQC [100%] 1 of 1 ✔
+executor >  lsf (4)
+[70/4e57d9] process > NFCORE_RNANANO:RNANANO:INPU... [100%] 1 of 1, cached: 1 ✔
+[fe/34f6ed] process > NFCORE_RNANANO:RNANANO:GUPP... [100%] 8 of 8, cached: 8 ✔
+[2b/314667] process > NFCORE_RNANANO:RNANANO:PYCO... [100%] 8 of 8, cached: 8 ✔
+[28/b38f0d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[81/730072] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 8 of 8, cached: 8 ✔
+[97/03445b] process > NFCORE_RNANANO:RNANANO:MINI... [100%] 8 of 8, cached: 8 ✔
+[61/82d51a] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 8 of 8, cached: 8 ✔
+[4d/d715a2] process > NFCORE_RNANANO:RNANANO:SAMT... [100%] 2 of 2, cached: 2 ✔
+[f9/ad499d] process > NFCORE_RNANANO:RNANANO:NANO... [100%] 2 of 2, cached: 2 ✔
+[2f/c6f2af] process > NFCORE_RNANANO:RNANANO:STRI... [100%] 2 of 2 ✔
+[6e/6426ec] process > NFCORE_RNANANO:RNANANO:CUST... [100%] 1 of 1 ✔
+[34/d70c0c] process > NFCORE_RNANANO:RNANANO:MULTIQC [100%] 1 of 1 ✔
+Waiting for file transfers to complete (1 files)
 -[nf-core/wgsnano] Pipeline completed successfully-
-Completed at: 06-Apr-2023 15:37:23
-Duration    : 20m 1s
-CPU hours   : 46.1 (96.4% cached)
-Succeeded   : 6
-Cached      : 49
+Completed at: 10-Apr-2023 21:51:46
+Duration    : 4m 57s
+CPU hours   : 28.8 (97.5% cached)
+Succeeded   : 4
+Cached      : 53
 
 

@@ -56,15 +56,16 @@ include { PYCOQC                      } from '../modules/local/pycoqc'
 include { NANOPLOT as NANOPLOT_basecall } from '../modules/local/nanoplot'
 include { NANOPLOT as NANOPLOT_fq } from '../modules/local/nanoplot'
 include { NANOPLOT as NANOPLOT_bam } from '../modules/local/nanoplot'
-include { MINIMAP2_ALIGN             } from '../modules/local/minimap2_align'
-include { SAMTOOLS_CONVERT            } from '../modules/local/samtools_convert'
-include { SAMTOOLS_MERGE              } from '../modules/local/samtools_merge'
+include { MINIMAP2_ALIGN } from '../modules/local/minimap2_align'
+include { SAMTOOLS_CONVERT } from '../modules/local/samtools_convert'
+include { SAMTOOLS_MERGE } from '../modules/local/samtools_merge'
 // include { PEPPER                      } from '../modules/local/PEPPER'
-include { SAMTOOLS_INDEX              } from '../modules/local/samtools_index'
+include { SAMTOOLS_INDEX  } from '../modules/local/samtools_index'
 // include { MOSDEPTH                    } from '../modules/local/MOSDEPTH'
 // include { MODBAM2BED                  } from '../modules/local/MODBAM2BED'
 include { CUSTOM_DUMPSOFTWAREVERSIONS } from '../modules/nf-core/custom/dumpsoftwareversions/main'
-include { MULTIQC                     } from '../modules/local/MULTIQC'
+include { MULTIQC } from '../modules/local/MULTIQC'
+include { STRINGTIE2 } from '../modules/local/stringtie2'
 
 
 /*
@@ -158,7 +159,7 @@ workflow RNANANO {
     ch_versions = ch_versions.mix(MINIMAP2_ALIGN.out.versions)
     
 
-    SAMTOOLS_CONVERT(
+    SAMTOOLS_CONVERT (
         
         MINIMAP2_ALIGN.out.sams
     )
@@ -188,13 +189,16 @@ workflow RNANANO {
     //
     // MODULE Nanoplot seq bam file
     //
-    NANOPLOT_bam(
+    NANOPLOT_bam (
         SAMTOOLS_MERGE.out.bam
     )
     ch_versions = ch_versions.mix(NANOPLOT_bam.out.versions)
 
     
-
+    STRINGTIE2 (
+        SAMTOOLS_MERGE.out.bam
+    )
+    ch_versions = ch_versions.mix(STRINGTIE2.out.versions)
 
 
     CUSTOM_DUMPSOFTWAREVERSIONS (
