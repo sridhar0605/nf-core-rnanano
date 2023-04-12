@@ -3,9 +3,9 @@ latest: Pulling from dhslab/docker-nextflow
 846c0b181fff: Pulling fs layer
 039a878e0e7c: Pulling fs layer
 c2413109f451: Pulling fs layer
-c2413109f451: Download complete
-846c0b181fff: Verifying Checksum
 846c0b181fff: Download complete
+c2413109f451: Verifying Checksum
+c2413109f451: Download complete
 846c0b181fff: Pull complete
 039a878e0e7c: Verifying Checksum
 039a878e0e7c: Download complete

@@ -26,6 +26,10 @@ process NANOPLOT {
     def input_file = ("$ontfile".endsWith(".fastq.gz")) ? "--fastq ${ontfile}" :
         ("$ontfile".endsWith(".txt")) ? "--summary ${ontfile}" :
         ("$ontfile".endsWith(".bam")) ? "--bam ${ontfile}" : ''
+    
+    def prefix_options = ("$ontfile".endsWith(".fastq.gz")) ? "--prefix ${meta.id}'_'" :
+        ("$ontfile".endsWith(".txt")) ? "--prefix ${meta.id}'_'" :
+        ("$ontfile".endsWith(".bam")) ? "--prefix ${meta.sample}'_'" : ''
     // def output_dir = ("$ontfile".endsWith(".fastq.gz")) ? "${meta.id}" :
     //                 ("$ontfile".endsWith(".txt")) ? "summary" : ''
     //                 ("$ontfile".endsWith(".bam")) ? "bam" : ''
@@ -34,10 +38,10 @@ process NANOPLOT {
     // output_txt  = output_dir+'/*.txt'
     // output_log  = output_dir+'/*.log'
     """
-    NanoPlot \\
-        $args \\
-        -t $task.cpus \\
-        $input_file
+    NanoPlot $args \\
+        $input_file \\
+        --threads $task.cpus \\
+        $prefix_options
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         nanoplot: \$(echo \$(NanoPlot --version 2>&1) | sed 's/^.*NanoPlot //; s/ .*\$//')

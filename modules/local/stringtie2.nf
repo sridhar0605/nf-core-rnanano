@@ -2,7 +2,6 @@ process STRINGTIE2 {
     // tag "$meta.id"
     label 'process_medium'
 
-    // Note: 2.7X indices incompatible with AWS iGenomes.
     conda "bioconda::stringtie=2.1.4"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         'https://depot.galaxyproject.org/singularity/stringtie:2.1.4--h7e0af3c_0' :

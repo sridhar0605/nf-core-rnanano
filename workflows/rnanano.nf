@@ -38,6 +38,7 @@ ch_multiqc_custom_methods_description = params.multiqc_methods_description ? fil
 // SUBWORKFLOW: Consisting of a mix of local and nf-core/modules
 //
 include { INPUT_CHECK } from '../subworkflows/local/input_check'
+ch_bambu_config  = file("$projectDir/bin/run_bambu.r", checkIfExists: true)
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -66,7 +67,8 @@ include { SAMTOOLS_INDEX  } from '../modules/local/samtools_index'
 include { CUSTOM_DUMPSOFTWAREVERSIONS } from '../modules/nf-core/custom/dumpsoftwareversions/main'
 include { MULTIQC } from '../modules/local/MULTIQC'
 include { STRINGTIE2 } from '../modules/local/stringtie2'
-
+include { SUBREAD } from '../modules/local/featurecount'
+include { BAMBU } from '../modules/local/bambu'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -75,6 +77,11 @@ include { STRINGTIE2 } from '../modules/local/stringtie2'
 */
 
 // Info required for completion email and summary
+
+// possiblities:
+// QC per flow cell 
+// QC per fastq
+// enhancement 
 def multiqc_report = []
 
 workflow RNANANO {
@@ -94,81 +101,50 @@ workflow RNANANO {
     //
     ch_fasta = Channel.fromPath(params.fasta)
 
-    //
-    // MODULE: Guppy Basecaller
-    //
+    
+    if ( params.align_only ) {
+        // fastq qc
+        
+        // 
+        MINIMAP2_ALIGN (
+        INPUT_CHECK.out.reads,
+        file(params.fasta)
+        )
+        ch_versions = ch_versions.mix(MINIMAP2_ALIGN.out.versions)
 
-    // Run with GPU if use_gpu = true, and set a channel to stream Guppy Basecaller output
-    if ( params.use_gpu ) {
+        NANOPLOT_fq (
+        INPUT_CHECK.out.reads
+        )
+        ch_versions = ch_versions.mix(NANOPLOT_fq.out.versions)
+
+    } else {
+        // if ( params.use_gpu ) {
+        //
+        // MODULE: Guppy Basecaller
+        //
+        // Run with GPU if use_gpu = true, and set a channel to stream Guppy Basecaller output
+
         GUPPY_BASECALLER_GPU (
             INPUT_CHECK.out.reads
         )
         ch_versions = ch_versions.mix(GUPPY_BASECALLER_GPU.out.versions)
         ch_basecall_out = GUPPY_BASECALLER_GPU.out
-    } else {
-        GUPPY_BASECALLER (
-            INPUT_CHECK.out.reads
-        )
-        ch_versions = ch_versions.mix(GUPPY_BASECALLER.out.versions)
-        ch_basecall_out = GUPPY_BASECALLER.out
-    }
-
-    //
-    // MODULE: PycoQC (QC from Basecall results)
-    //
-    PYCOQC (
-        ch_basecall_out.summary
-    )
-    ch_versions = ch_versions.mix(PYCOQC.out.versions)
-
-    //
-    // MODULE Nanoplot seq summary file
-    //
-    NANOPLOT_basecall (
-        ch_basecall_out.summary
-    )
-    ch_versions = ch_versions.mix(NANOPLOT_basecall.out.versions)
-
-    //
-    // MODULE Nanoplot seq fastq file
-    //
-    NANOPLOT_fq (
-        ch_basecall_out.fastq
-    )
-    ch_versions = ch_versions.mix(NANOPLOT_fq.out.versions)
-
-
-
-    //
-    // CHANNEL: Channel operation group unaligned bams paths by sample (i.e bams of reads from multiple flow cells but the same sample streamed together to be fed for alignment module)
-    //
-    // ch_basecall_out // basecll output channel
-    // .fastq // bams path output
-    // .map { meta, bams -> [[sample: meta.sample] , fastq]} // make sample name the only mets (remove flow cell and other info)
-    // .groupTuple(by: 0) // group bams by meta (i.e sample) which zero indexed
-    // .set { ch_fastq_path_per_sample } // set channel name
-
-
-    //
-    // MODULE: GUPPY_ALIGNER for Alignment
-    //
-    MINIMAP2_ALIGN (
+        MINIMAP2_ALIGN (
         ch_basecall_out.fastq,
         file(params.fasta)
-    )
-    ch_versions = ch_versions.mix(MINIMAP2_ALIGN.out.versions)
-    
+        )
+        ch_versions = ch_versions.mix(MINIMAP2_ALIGN.out.versions)
+        NANOPLOT_basecall (
+        ch_basecall_out.summary
+        )
+        ch_versions = ch_versions.mix(NANOPLOT_basecall.out.versions)
+    }
 
     SAMTOOLS_CONVERT (
         
         MINIMAP2_ALIGN.out.sams
     )
     ch_samtools_out = SAMTOOLS_CONVERT.out
-    
-    //
-    // MODULE: Samtools merge all bams
-    // 
-    
 
     //
     // CHANNEL: Channel operation group unaligned bams paths by sample (i.e bams of reads from multiple flow cells but the same sample streamed together to be fed for alignment module)
@@ -200,6 +176,18 @@ workflow RNANANO {
     )
     ch_versions = ch_versions.mix(STRINGTIE2.out.versions)
 
+    SUBREAD (
+        SAMTOOLS_MERGE.out.bam
+    )
+    ch_versions = ch_versions.mix(SUBREAD.out.versions)
+
+    BAMBU (
+        ch_bambu_config,
+        SAMTOOLS_MERGE.out.bam,
+        file(params.fasta)
+    )
+    ch_versions = ch_versions.mix(BAMBU.out.versions)
+
 
     CUSTOM_DUMPSOFTWAREVERSIONS (
         ch_versions.unique().collectFile(name: 'collated_versions.yml')
@@ -218,16 +206,7 @@ workflow RNANANO {
     ch_multiqc_files = ch_multiqc_files.mix(ch_workflow_summary.collectFile(name: 'workflow_summary_mqc.yaml'))
     ch_multiqc_files = ch_multiqc_files.mix(ch_methods_description.collectFile(name: 'methods_description_mqc.yaml'))
     ch_multiqc_files = ch_multiqc_files.mix(CUSTOM_DUMPSOFTWAREVERSIONS.out.mqc_yml.collect())
-    ch_multiqc_files = ch_multiqc_files.mix(PYCOQC.out.json.collect{it[1]}.ifEmpty([]))
-
-    // ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.global_txt.collect{it[1]}.ifEmpty([]))
-    // ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.summary_txt.collect{it[1]}.ifEmpty([]))
-    // ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.regions_txt.collect{it[1]}.ifEmpty([]))
-    // ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.regions_bed.collect{it[1]}.ifEmpty([]))
-    // ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.regions_csi.collect{it[1]}.ifEmpty([]))
-    // ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.quantized_bed.collect{it[1]}.ifEmpty([]))
-    // ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.quantized_csi.collect{it[1]}.ifEmpty([]))
-
+    // ch_multiqc_files = ch_multiqc_files.mix(PYCOQC.out.json.collect{it[1]}.ifEmpty([]))
 
 
 
@@ -238,9 +217,6 @@ workflow RNANANO {
         ch_multiqc_logo.toList()
     )
     multiqc_report = MULTIQC.out.report.toList()
-    // emit: Channel.empty()
-    // emit: GUPPY_BASECALLER.out.basecall_bams_path.map { mata, bams -> [mata.sample , bams]} .groupTuple()
-    // emit : ch_bams_path_per_sample
 }
 
 /*
