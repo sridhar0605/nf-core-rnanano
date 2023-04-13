@@ -1,4 +1,5 @@
 process GUPPY_BASECALLER_GPU {
+    tag "$meta.id"
     label 'process_gpu_long'
 
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?

@@ -1,4 +1,5 @@
 process SAMTOOLS_CONVERT {
+    tag "$meta.id"
     label 'process_high'
 
     conda "bioconda::samtools=1.16.1"

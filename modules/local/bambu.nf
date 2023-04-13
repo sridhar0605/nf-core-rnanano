@@ -1,4 +1,5 @@
 process BAMBU {
+    tag "$meta.sample"
     label 'process_high'
 
     conda "conda-forge::r-base=4.0.3 bioconda::bioconductor-bambu=3.0.8 bioconda::bioconductor-bsgenome=1.66.0"

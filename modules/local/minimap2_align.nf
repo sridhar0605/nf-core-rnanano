@@ -1,4 +1,5 @@
 process MINIMAP2_ALIGN {
+    tag "$meta.id"
     label 'process_high'
 
     conda     (params.enable_conda ? "bioconda::minimap2=2.17" : null)

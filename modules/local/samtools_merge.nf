@@ -1,4 +1,5 @@
 process SAMTOOLS_MERGE {
+    tag "$meta.sample"
     label 'process_high'
 
     conda "bioconda::samtools=1.16.1"

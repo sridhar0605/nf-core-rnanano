@@ -1,5 +1,5 @@
 process STRINGTIE2 {
-    // tag "$meta.id"
+    tag "$meta.sample"
     label 'process_medium'
 
     conda "bioconda::stringtie=2.1.4"

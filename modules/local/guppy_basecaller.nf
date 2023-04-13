@@ -1,4 +1,5 @@
 process GUPPY_BASECALLER {
+    tag "$meta.id"
     label 'process_high'
 
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?

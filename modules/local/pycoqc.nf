@@ -1,5 +1,5 @@
 process PYCOQC {
-    tag "$summary"
+    tag "$meta.id"
     label 'process_low'
 
     conda "bioconda::pycoqc=2.5.2"

@@ -1,6 +1,6 @@
 process NANOPLOT {
-    // tag "$meta.id"
-    label 'process_low'
+    tag "$meta.sample"
+    label 'process_medium'
 
     conda (params.enable_conda ? 'bioconda::nanoplot=1.38.0' : null)
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?

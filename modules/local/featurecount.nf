@@ -1,4 +1,5 @@
 process SUBREAD {
+    tag "$meta.sample"
     label 'process_high'
 
     conda "bioconda::subread=2.0.1"
